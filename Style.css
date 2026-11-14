@@ -63,7 +63,8 @@ body {
 .btn_sair:hover {
     background: url("imagens/button-gold-big-hover-62c94bca.png") center / 100% 100% no-repeat;
     background-color: transparent;
-    transform: translateY(-2px);
+    transform: scale(1.1);
+    transition: transform 0.2s;
 }
 
     .menu[hidden] {
@@ -92,4 +93,8 @@ body {
     aspect-ratio: 1 / 1.5;
     background-color: #3de0a0;
     border-radius: 8px;
+}
+.carta:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s;
 }
