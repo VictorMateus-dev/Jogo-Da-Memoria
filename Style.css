@@ -47,20 +47,49 @@ body {
 }
 
 .btn_iniciar, .btn_sair {
-        font-size: 18px;
-        background: url("imagens/button-gold-big-idle-e8b9d21a.png") center / 100% 100% no-repeat;
-        background-color: transparent;
-        border: none;
-        padding: 18px 26px;
-        cursor: pointer;
-        margin-top: 20px;
-        min-width: 200px;
-        min-height: 60px;
-        box-sizing: border-box;
+    font-size: 18px;
+    background: url("imagens/button-gold-big-idle-e8b9d21a.png") center / 100% 100% no-repeat;
+    background-color: transparent;
+    border: none;
+    padding: 18px 26px;
+    cursor: pointer;
+    margin-top: 20px;
+    min-width: 200px;
+    min-height: 60px;
+    box-sizing: border-box;
+}
+
+.btn_iniciar:hover, 
+.btn_sair:hover {
+    background: url("imagens/button-gold-big-hover-62c94bca.png") center / 100% 100% no-repeat;
+    background-color: transparent;
+    transform: translateY(-2px);
+}
+
+    .menu[hidden] {
+    display: none;
     }
 
-    .btn_iniciar:hover, 
-    .btn_sair:hover {
-        background: url("imagens/button-gold-big-hover-62c94bca.png") center / 100% 100% no-repeat;
-        background-color: transparent;
-    }
+.partida {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.partida[hidden] {
+    display: none;
+}
+
+.tabuleiro {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    width: min(90vw, 360px);
+    margin: 0 auto;
+}
+
+.carta {
+    aspect-ratio: 1 / 1.5;
+    background-color: #3de0a0;
+    border-radius: 8px;
+}
