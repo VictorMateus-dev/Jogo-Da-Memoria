@@ -98,6 +98,8 @@ body {
 
 
 .carta {
+    position: relative;
+    transition: transform 0.2s ease;
     width: 100%;
     min-width: 0;
     aspect-ratio: 708 / 1280;
@@ -130,4 +132,10 @@ body {
 
 .carta.reveal-card .conteudo {
     transform: rotateY(180deg);
+}
+@media (hover: hover) {
+    .carta:hover {
+        transform: scale(1.08);
+        z-index: 1;
+    }
 }
