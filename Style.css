@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'font-GWENT-ExtraBold'; 
+    src:  url('fonts/hinted-GWENT-ExtraBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+    font-family: 'font-GWENT-ExtraBold', sans-serif;
+}
+
 body {
     text-align: center;
     margin: 0;
