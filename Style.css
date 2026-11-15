@@ -9,7 +9,7 @@ body {
 }
 
 .fumacas {
-    position: fixed; inset: 20px; 
+    position: fixed; inset: 0; 
     z-index: -1; 
     overflow: hidden;
     background: #0B1517 url("imagens/WhatsApp\ Image\ 2026-11-14\ at\ 11.28.45.jpeg") center top / cover no-repeat;
@@ -72,7 +72,10 @@ body {
     }
 
 .partida {
+    box-sizing: border-box;
     min-height: 100vh;
+    min-height: 100svh;
+    padding: 32px 16px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -83,18 +86,47 @@ body {
 
 .tabuleiro {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 8px;
-    width: min(90vw, 360px);
+    width: min(320px, calc(100vw - 32px), calc(55.3125svh - 24.6875px));
     margin: 0 auto;
 }
 
 .carta {
-    aspect-ratio: 1 / 1.5;
-    background-color: #3de0a0;
+    width: 100%;
+    min-width: 0;
+    aspect-ratio: 708 / 1280;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.conteudo {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+.frente, .verso {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.frente {
+    transform: rotateY(180deg);
+}
+
+.frente img, .verso img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
     border-radius: 8px;
 }
-.carta:hover {
-    transform: scale(1.05);
-    transition: transform 0.2s;
+
+.carta.virada .conteudo {
+    transform: rotateY(180deg);
 }
