@@ -70,6 +70,7 @@ const revealCard = ({ currentTarget }) => {
     if (firstCard === '') {
         currentTarget.classList.add('reveal-card');
         firstCard = currentTarget;
+        
     } else if (secondCard === '') {
         currentTarget.classList.add('reveal-card');
         secondCard = currentTarget;

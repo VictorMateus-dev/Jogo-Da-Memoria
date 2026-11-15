@@ -248,3 +248,18 @@ body {
     color: #fff1c2;
     box-shadow: 0 0 10px #4b9b6730;
 }
+
+.partida:not([hidden]), .placar:not([hidden]) {
+    animation: aparecer 0.5s ease-out;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
