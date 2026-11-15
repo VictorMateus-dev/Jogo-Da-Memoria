@@ -24,8 +24,44 @@ const grid = createElement('div', 'tabuleiro');
 partida.appendChild(grid);
 
 
+let firstCard = '';
+let secondCard = '';
+
+const checkCards = () => {
+    const firstCharacter = firstCard.getAttribute('data-character');
+    const secondCharacter = secondCard.getAttribute('data-character');
+
+    if (firstCharacter === secondCharacter) {
+        
+        firstCard = '';
+        secondCard = '';
+
+        
+    } else {
+        setTimeout(() => {
+            firstCard.classList.remove('reveal-card');
+            secondCard.classList.remove('reveal-card');
+
+            firstCard = '';
+            secondCard = '';
+        }, 500);
+    }
+};
+
 const revealCard = ({ currentTarget }) => {
-    currentTarget.classList.add('reveal-card');
+    if (currentTarget.classList.contains('reveal-card')) {
+        return;
+    }
+
+    if (firstCard === '') {
+        currentTarget.classList.add('reveal-card');
+        firstCard = currentTarget;
+    } else if (secondCard === '') {
+        currentTarget.classList.add('reveal-card');
+        secondCard = currentTarget;
+
+        checkCards();
+    }
 };
 
 const createCard = (character) => {
