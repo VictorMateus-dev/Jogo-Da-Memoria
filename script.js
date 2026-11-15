@@ -14,6 +14,8 @@ const cards = [
 const menu = document.getElementById('menu');
 const partida = document.getElementById('partida');
 const btnIniciar = document.getElementById('btn_iniciar');
+const placar1 = document.getElementById('placar1');
+const placar2 = document.getElementById('placar2');
 
 
 
@@ -115,4 +117,6 @@ btnIniciar.addEventListener('click', () => {
     loadGame();
     menu.hidden = true;
     partida.hidden = false;
+    placar1.hidden = false;
+    placar2.hidden = false;
 });
