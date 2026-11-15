@@ -88,9 +88,14 @@ body {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 8px;
-    width: min(320px, calc(100vw - 32px), calc(55.3125svh - 24.6875px));
+    width: min(360px, calc(100vw - 32px), calc(55.3125svh - 24.6875px));
     margin: 0 auto;
 }
+
+
+
+
+
 
 .carta {
     width: 100%;
@@ -113,20 +118,16 @@ body {
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 8px;
 }
 
 .frente {
     transform: rotateY(180deg);
 }
 
-.frente img, .verso img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border-radius: 8px;
-}
-
-.carta.virada .conteudo {
+.carta.reveal-card .conteudo {
     transform: rotateY(180deg);
 }
