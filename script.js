@@ -1,3 +1,4 @@
+
 const cards = [
     'cirilla',
     'dandelion',
@@ -9,9 +10,11 @@ const cards = [
     'yennefer'
 ];
 
+
 const menu = document.getElementById('menu');
 const partida = document.getElementById('partida');
 const btnIniciar = document.getElementById('btn_iniciar');
+
 
 
 const createElement = (tag, className) => {
@@ -20,33 +23,42 @@ const createElement = (tag, className) => {
     return element;
 };
 
+
 const grid = createElement('div', 'tabuleiro');
 partida.appendChild(grid);
+
+
 
 
 let firstCard = '';
 let secondCard = '';
 
+//Essa bomba aqui checa se as cartas são iguais
+//Nesse primeiro if ele checa. Então para adicionar o placar do jogo vai ter que partir dele
+//Já esse segundo ele limpa as variaveis e volta as cartas ao normal, para pular a vez será ai tbm
+//O primeiro if tbm limpa as variaveis se não trava e não deixa jogar dnv
 const checkCards = () => {
     const firstCharacter = firstCard.getAttribute('data-character');
     const secondCharacter = secondCard.getAttribute('data-character');
 
     if (firstCharacter === secondCharacter) {
         
+        
         firstCard = '';
         secondCard = '';
 
         
-    } else {
+    } else {   
         setTimeout(() => {
             firstCard.classList.remove('reveal-card');
             secondCard.classList.remove('reveal-card');
-
             firstCard = '';
             secondCard = '';
         }, 500);
     }
 };
+
+
 
 const revealCard = ({ currentTarget }) => {
     if (currentTarget.classList.contains('reveal-card')) {
@@ -63,6 +75,7 @@ const revealCard = ({ currentTarget }) => {
         checkCards();
     }
 };
+
 
 const createCard = (character) => {
     const card = createElement('div', 'carta');
@@ -82,6 +95,8 @@ const createCard = (character) => {
     
     return card;
 };
+
+
 
 
 const loadGame = () => {
