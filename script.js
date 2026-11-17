@@ -20,6 +20,11 @@ const pontosPlayer1 = document.getElementById('pontos-player1');
 const pontosPlayer2 = document.getElementById('pontos-player2');
 const statusPlayer1 = document.getElementById('status-player1');
 const statusPlayer2 = document.getElementById('status-player2');
+const telaFim = document.getElementById('tela-fim');
+const vencedor = document.getElementById('vencedor');
+const placarFinal = document.getElementById('placar-final');
+const btnNovoJogo = document.getElementById('btn_novo_jogo');
+const btnVoltarMenu = document.getElementById('btn_voltar_menu');
 
 const TEMPO_JOGADA = 30;
 const TOTAL_PARES = 8;
@@ -98,23 +103,31 @@ const trocarVez = () => {
 const fimDeJogo = () => {
     pararTimer();
 
-    let mensagem = 'Empate!';
-    if (pontos[1] > pontos[2]) mensagem = 'Player 1 venceu!';
-    if (pontos[2] > pontos[1]) mensagem = 'Player 2 venceu!';
+    if (pontos[1] > pontos[2]) {
+        vencedor.textContent = 'PLAYER 1 VENCEU!';
+    } else if (pontos[2] > pontos[1]) {
+        vencedor.textContent = 'PLAYER 2 VENCEU!';
+    } else {
+        vencedor.textContent = 'EMPATE!';
+    }
 
-    setTimeout(() => {
-        const jogarDeNovo = confirm(`${mensagem}\n\nPlayer 1: ${pontos[1]}  |  Player 2: ${pontos[2]}\n\nJogar de novo?`);
+    placarFinal.textContent = pontos[1] + ' x ' + pontos[2];
 
-        if (jogarDeNovo) {
-            novaPartida();
-        } else {
-            menu.hidden = false;
-            partida.hidden = true;
-            placar1.hidden = true;
-            placar2.hidden = true;
-        }
-    }, 600);
+    telaFim.hidden = false;
 };
+
+btnNovoJogo.addEventListener('click', () => {
+    telaFim.hidden = true;
+    novaPartida();
+});
+
+btnVoltarMenu.addEventListener('click', () => {
+    telaFim.hidden = true;
+    menu.hidden = false;
+    partida.hidden = true;
+    placar1.hidden = true;
+    placar2.hidden = true;
+});
 
 const checkCards = () => {
     const firstCharacter = firstCard.getAttribute('data-character');
